@@ -4,7 +4,7 @@ import React,  { useState } from "react"
 
 
 
-export default function LikeButton(){
+export default function LikeButton(props){
     const [count, setCount] = useState(0)
 
      function handleClick(){
@@ -13,7 +13,7 @@ export default function LikeButton(){
 
     return(
         <div>
-            <button onClick={handleClick}>Clique aqui em 123  { count }</button>
+            <button onClick={handleClick}>Clique { props.flask_token} { count }</button>
         </div>
     )
 }

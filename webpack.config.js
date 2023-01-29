@@ -1,5 +1,4 @@
 const path = require('path');
-const WriteFilePlugin = require('write-file-webpack-plugin')
 
 module.exports = {
     mode: 'development',
@@ -10,11 +9,14 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './static/JS'),
         filename: 'app-bundle.js',
-  },
+  },devtool: 'inline-source-map',
 
     resolve: {
         extensions: ['.js', '.jsx', '.json'],
     },
+    watchOptions: {
+        poll: 1000, // Check for changes every second
+      },
 
     module: {
         rules: [
@@ -26,13 +28,10 @@ module.exports = {
     ],
   },
     devServer: {
-        static:  path.join(__dirname, "./static/JS/dev"),
+        static:  path.join(__dirname, "./"),
         
-
+        compress: true,
         hot: true,
         liveReload: true
-    },  
-    plugins: [
-        new WriteFilePlugin()
-],
+    }, 
 };

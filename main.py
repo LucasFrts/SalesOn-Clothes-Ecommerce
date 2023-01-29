@@ -3,9 +3,10 @@ import os
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
-    return render_template('layout.html')
+    return render_template('layout.html', title="home", flask_token="meu token")
 
 
 if __name__ == '__main__':
