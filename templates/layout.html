@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+
+    <title>{% block title %} {% endblock %}</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Boostrap 5.0 -->
+    <link
+      rel="stylesheet"
+      href="./../static/libs/Bootstrap/bootstrap.min.css"
+    />
+    <script src="./../static/libs/Bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Fim -->
+
+    <!-- Variaveis no React -->
+    {% block variables %}
+    <script>
+      token = "{{ flask_token }}";
+    </script>
+    {% endblock %}
+    <!-- Fim -->
+    {% endblock%}
+  </head>
+  <body>
+    <!-- Todo conteudo da pagina existirá dentro do main -->
+    <main>{% block content %} {% endblock %}</main>
+
+    <!-- Arquivo de renderização pai do React compilado -->
+    <script src="./../static/JS/app-bundle.js"></script>
+  </body>
+</html>
