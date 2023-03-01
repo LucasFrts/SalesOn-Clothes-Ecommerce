@@ -1,6 +1,10 @@
 {% extends "layout.html" %} {% block title%} {{ title }} {% endblock %} {% block
 content %}
-<div id="app"></div>
+
+<section class="container">
+    {% include 'carroussel.html' %}
+</section>
+
 {% endblock %} {% block variables %} {{ super() }}
 <script></script>
 {% endblock %}
